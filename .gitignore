@@ -31,4 +31,14 @@ out/
 # Environment files
 .env
 .env.local
-.env.*.local 
+.env.*.local
+
+# Context and temporary files
+*.context
+*.ctx
+*.tmp
+*.temp
+.cache/
+.context/
+temp/
+tmp/ 
