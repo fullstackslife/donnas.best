@@ -20,15 +20,17 @@ const questions = [
   { id: 17, prompt: "Who do you want to dedicate it to?" },
 ];
 
+type Answers = Record<number, string>;
+
 export default function Journal() {
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState<Answers>({});
 
   useEffect(() => {
     const saved = localStorage.getItem("donna_journal");
     if (saved) setAnswers(JSON.parse(saved));
   }, []);
 
-  const handleChange = (id, text) => {
+  const handleChange = (id: number, text: string) => {
     const newAnswers = { ...answers, [id]: text };
     setAnswers(newAnswers);
     localStorage.setItem("donna_journal", JSON.stringify(newAnswers));
